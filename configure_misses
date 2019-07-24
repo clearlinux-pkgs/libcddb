@@ -1,0 +1,4 @@
+Configure miss: connect in -lsocket
+Configure miss: connect in -lnetwork
+Configure miss: winsock2.h usability
+Configure miss: winsock2.h presence
