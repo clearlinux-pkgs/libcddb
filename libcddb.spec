@@ -5,8 +5,8 @@
 Name     : libcddb
 Version  : 1.3.2
 Release  : 1
-URL      : https://downloads.sourceforge.net/libcddb/libcddb-1.3.2.tar.bz2
-Source0  : https://downloads.sourceforge.net/libcddb/libcddb-1.3.2.tar.bz2
+URL      : https://sourceforge.net/projects/libcddb/files/libcddb/1.3.2/libcddb-1.3.2.tar.bz2
+Source0  : https://sourceforge.net/projects/libcddb/files/libcddb/1.3.2/libcddb-1.3.2.tar.bz2
 Summary  : CDDB server access library
 Group    : Development/Tools
 License  : LGPL-2.0
