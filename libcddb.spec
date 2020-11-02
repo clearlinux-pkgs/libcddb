@@ -4,7 +4,7 @@
 #
 Name     : libcddb
 Version  : 1.3.2
-Release  : 1
+Release  : 2
 URL      : https://sourceforge.net/projects/libcddb/files/libcddb/1.3.2/libcddb-1.3.2.tar.bz2
 Source0  : https://sourceforge.net/projects/libcddb/files/libcddb/1.3.2/libcddb-1.3.2.tar.bz2
 Summary  : CDDB server access library
@@ -62,20 +62,21 @@ license components for the libcddb package.
 
 %prep
 %setup -q -n libcddb-1.3.2
+cd %{_builddir}/libcddb-1.3.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1563979944
+export SOURCE_DATE_EPOCH=1604359133
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %configure --disable-static
 make  %{?_smp_mflags}
@@ -85,13 +86,13 @@ export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-make VERBOSE=1 V=1 %{?_smp_mflags} check || :
+make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1563979944
+export SOURCE_DATE_EPOCH=1604359133
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libcddb
-cp COPYING %{buildroot}/usr/share/package-licenses/libcddb/COPYING
+cp %{_builddir}/libcddb-1.3.2/COPYING %{buildroot}/usr/share/package-licenses/libcddb/b256632dcce76559734ff0a23330d2898b7d3a3b
 %make_install
 
 %files
@@ -123,4 +124,4 @@ cp COPYING %{buildroot}/usr/share/package-licenses/libcddb/COPYING
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/libcddb/COPYING
+/usr/share/package-licenses/libcddb/b256632dcce76559734ff0a23330d2898b7d3a3b
